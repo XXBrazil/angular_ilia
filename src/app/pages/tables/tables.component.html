@@ -1,0 +1,88 @@
+<div class=" content">
+  <div class=" row">
+    <div class=" col-md-12">
+      <div class=" card">
+      <div class=" card-header"><h5 class=" title">PESQUISA GITHUB</h5></div>
+      <div class=" card-body">
+        <form [formGroup]="searchForm">
+          <div class=" row">
+            <div class=" col-md-3 pr-md-1">
+              <div class=" form-group">
+                <label> Tipo de Pesquisa por: </label>
+                <select  (change)="changeSearch()" formControlName="tipoPesquisa" name="tipoPesquisa" id="tipoPesquisa" class=" form-control">
+                  <option value="0">Selecione o tipo de pesquisa</option>
+                  <option value="1">Usuário</option>
+                  <option value="2">Repositórios</option>
+                  <option value="3">Repositórios mais Visitados</option>
+                </select>
+              </div>
+            </div>
+            <div class=" col-md-3 pr-md-1">
+              <div class=" form-group">
+                <label> Usuário </label>
+                <input
+                  formControlName="usuario"
+                  class=" form-control"
+                  placeholder="Usuário"
+                  type="text"
+                />
+              </div>
+            </div>
+            <div class=" col-md-3 pr-md-1" *ngIf="pesquisa === 3">
+              <div class=" form-group">
+                <label> Repositório </label>
+                <input
+                  formControlName="repositorio"
+                  class=" form-control"
+                  placeholder="Repositorio"
+                  type="text"
+                />
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class=" card-footer">
+        <button class=" btn btn-fill btn-danger" type="submit" (click)="pesquisar()">PESQUISAR</button>
+      </div>
+    </div>
+    </div>
+    <div class=" col-md-12">
+      <div class=" card">
+        <div class=" card-header">
+          <h4 class=" card-title">Histórico de pesquisas</h4>
+        </div>
+        <div class=" card-body">
+          <div class=" table-responsive">
+            <table class=" table tablesorter" id="table_1">
+              <thead class=" text-primary">
+                <tr>
+                  <th>Endpoint</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let path of paths">
+                <td>{{path.url}}</td>
+                <td>{{path.date}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class=" col-md-12">
+      <div class=" card">
+        <div class=" card-header">
+          <h4 class=" card-title">Resultado</h4>
+        </div>
+        <div class=" card-body">
+          {{answer | json}}
+        </div>
+      </div>
+    </div>
+    <div class=" col-md-12">
+    </div>
+  </div>
+</div>
