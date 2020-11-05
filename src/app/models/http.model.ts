@@ -17,12 +17,12 @@ export class HttpOptions {
   params?: HttpParams;
 }
 
-export class CobrancaMensagem {
+export class MyMessage {
   codigo: string;
   mensagem: string;
   dataHora: string;
 }
 
-export class CobrancaResposta {
-  erro: CobrancaMensagem;
+export class MyAnswer {
+  erro: MyMessage;
 }

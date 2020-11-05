@@ -53,18 +53,18 @@
           <h4 class=" card-title">Histórico de pesquisas</h4>
         </div>
         <div class=" card-body">
-          <div class=" table-responsive">
+          <div>
             <table class=" table tablesorter" id="table_1">
               <thead class=" text-primary">
                 <tr>
                   <th>Endpoint</th>
-                  <th>Date</th>
+                  <th>Data</th>
                 </tr>
               </thead>
               <tbody>
               <tr *ngFor="let path of paths">
                 <td>{{path.url}}</td>
-                <td>{{path.date}}</td>
+                <td>{{path.date | date:'dd/MM/yyyy hh:mm:ss' }}</td>
               </tr>
               </tbody>
             </table>
@@ -72,13 +72,80 @@
         </div>
       </div>
     </div>
-    <div class=" col-md-12">
+    <div class=" col-md-12" *ngIf="show">
       <div class=" card">
         <div class=" card-header">
-          <h4 class=" card-title">Resultado</h4>
+          <h4 class=" card-title">{{titulo}}</h4>
         </div>
         <div class=" card-body">
-          {{answer | json}}
+          <div>
+            <table class=" table tablesorter" id="table_user" *ngIf="users.length > 0 && pesquisa === 1">
+              <thead class=" text-primary">
+              <tr>
+                <th>NOME</th>
+                <th>LOCALIZAÇÂO</th>
+                <th>LOGIN</th>
+                <th>ID</th>
+                <th>NODE_ID</th>
+                <th>CRIAÇÂO</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let user of users">
+                <td>{{user.name}}</td>
+                <td>{{user.location}}</td>
+                <td>{{user.login}}</td>
+                <td>{{user.id}}</td>
+                <td>{{user.node_id}}</td>
+                <td>{{user.created_at | date:'dd/MM/yyyy hh:mm:ss' }}</td>
+              </tr>
+              </tbody>
+            </table>
+            <table class=" table tablesorter" id="table_repo" *ngIf="repos.length > 0 && pesquisa === 2">
+              <thead class=" text-primary">
+              <tr>
+                <th>NOME</th>
+                <th>URL</th>
+                <th>NOME COMPLETO</th>
+                <th>LINGUAGEM</th>
+                <th>TAMANHO</th>
+                <th>CRIAÇÂO</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let repo of repos">
+                <td>{{repo.name}}</td>
+                <td>{{repo.archive_url}}</td>
+                <td>{{repo.full_name}}</td>
+                <td>{{repo.language ? repo.language: 'Não definida'}}</td>
+                <td>{{repo.size}}</td>
+                <td>{{repo.created_at | date:'dd/MM/yyyy hh:mm:ss' }}</td>
+              </tr>
+              </tbody>
+            </table>
+            <table class=" table tablesorter" id="table_starred" *ngIf="starreds.length > 0 && pesquisa === 3">
+              <thead class=" text-primary">
+              <tr>
+                <th>LOGIN</th>
+                <th>ID</th>
+                <th>NODE_ID</th>
+                <th>URL</th>
+                <th>TIPO</th>
+                <th>ADMIN</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let starred of starreds">
+                <td>{{starred.login}}</td>
+                <td>{{starred.id}}</td>
+                <td>{{starred.node_id}}</td>
+                <td>{{starred.html_url}}</td>
+                <td>{{starred.type}}</td>
+                <td>{{starred.site_admin}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
