@@ -16,7 +16,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HttpClientModule,
     NgbModule,
     ReactiveFormsModule,
-    NgxDatatableModule,
   ],
   declarations: [
     TablesComponent,
