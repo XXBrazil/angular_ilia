@@ -7,7 +7,6 @@ import { AdminLayoutRoutes } from './admin-layout.routing';
 import { TablesComponent } from '../../pages/tables/tables.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import {NgxDatatableModule} from '@swimlane/ngx-datatable';
 
 @NgModule({
   imports: [
