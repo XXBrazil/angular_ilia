@@ -13,14 +13,15 @@
 
 ## Para testes
 
-1. Usuário: octocat
+Usuário:
+1.   octocat
 
-   Repositórios: 
-   hello-world
-   git-consortium
-   boysenberry-repo-1
-   linguist
-   octocat.github.io
-   Spoon-Knife
-   test-repo1
-   Hello-World  
+Repositórios: 
+1.   hello-world
+2.   git-consortium
+3.   boysenberry-repo-1
+4.   linguist
+5.   octocat.github.io
+6.   Spoon-Knife
+7.   test-repo1
+8.   Hello-World  
